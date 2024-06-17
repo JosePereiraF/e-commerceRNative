@@ -18,7 +18,7 @@ export const GetAllPokemons =():Promise<AxiosResponse<Produto[] >> =>{
     })
     .catch((error: AxiosError)=>{
         console.error(error.message);
-        
+
          throw error;
      })
 }

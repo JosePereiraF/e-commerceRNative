@@ -14,7 +14,6 @@ export default function App() {
     GetAllPokemons()
     .then((response: AxiosResponse<Produto[]>)=>{
         console.log(response.data);
-        
         return response.data;
     })
     .catch((error)=>{
