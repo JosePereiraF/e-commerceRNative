@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { FlatList, GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
 import { useEffect,useState } from 'react';
-import { Card } from './components';
+import { Card } from './components/CardProduto';
 import { GetAllPokemons,Produto } from "./service/produto";
 import { AxiosResponse } from "axios";
 

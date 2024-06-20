@@ -1,6 +1,6 @@
 import { View, Text, Image } from 'react-native'
 import React, { useState } from 'react'
-import { Produto } from '../service/produto'
+import { Produto } from '../../service/produto'
 
 interface CardProps{
     item: Produto
