@@ -7,7 +7,7 @@ export interface Produto{
     pokeDex:number
     name:string
     valorUnitario:number
-    imagem:ImageSourcePropType
+    imagem:string
     tipoPrimario:string
     tipoSecundario:string
 }

@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { FlatList, GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
 import { useEffect,useState } from 'react';
-import { Card } from './components/CardProduto';
+import { CardPokemon } from './components/CardProduto';
 import { GetAllPokemons,Produto } from "./service/produto";
 import { AxiosResponse } from "axios";
 
@@ -36,7 +36,7 @@ return (
 scrollEnabled={false}
 data={pokemons}
 renderItem={({ item })=>{
-  return <Card item={item}/>
+  return <CardPokemon item={item}/>
 }}
 />
 </View>

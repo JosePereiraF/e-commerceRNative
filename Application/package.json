@@ -9,7 +9,9 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@emotion/styled": "^11.11.5",
     "@expo/metro-runtime": "~3.2.1",
+    "@mui/material": "^5.15.20",
     "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/drawer": "^6.6.15",
     "@react-navigation/native": "^6.1.17",
