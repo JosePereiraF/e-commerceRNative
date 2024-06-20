@@ -1,26 +1,27 @@
 import { AxiosResponse, AxiosError } from 'axios';
 import { Api } from "./Api";
+import { ImageSourcePropType } from 'react-native';
 
 
 export interface Produto{
     pokeDex:number
     name:string
     valorUnitario:number
-    imagem:string
+    imagem:ImageSourcePropType
     tipoPrimario:string
     tipoSecundario:string
 }
 
-export const GetAllPokemons =():Promise<AxiosResponse<Produto[] >> =>{
-    return Api.get<Produto []>("pokemon")
-    .then((response:AxiosResponse<Produto[]>)=>{
-        return response;
-    })
-    .catch((error: AxiosError)=>{
-        console.error(error.message);
+export const GetAllPokemons =():Promise<AxiosResponse<Produto[]>> =>{
+  return Api.get<Produto []>("pokemon")
+  .then((response:AxiosResponse<Produto[]>)=>{
+      return response;
+  })
+  .catch((error: AxiosError)=>{
+      console.error(error.message);
 
-         throw error;
-     })
+       throw error;
+   })
 }
 
 

@@ -1,11 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
-import { useEffect } from 'react';
+import { FlatList, GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
+import { useEffect,useState } from 'react';
 import { Card } from './components';
-import { GetAllPokemons } from "./service/produto";
-import { Produto } from './service/produto';
+import { GetAllPokemons,Produto } from "./service/produto";
 import { AxiosResponse } from "axios";
-import { useState } from "react";
+
 
 export default function App() {
   const [pokemons,setPokemons] =useState<Produto[]>([]);//possivel
@@ -13,7 +12,8 @@ export default function App() {
   function ListarPokemons(){
     GetAllPokemons()
     .then((response: AxiosResponse<Produto[]>)=>{
-        console.log(response.data);
+        // console.log(response.data);
+        setPokemons(response.data)
         return response.data;
     })
     .catch((error)=>{
@@ -26,14 +26,22 @@ ListarPokemons();
 },[])
 
 return (
-<View>
-{/* <FlatList
+  
+  <GestureHandlerRootView>
+
+  <ScrollView>
+<View  style={styles.container}>
+
+<FlatList
+scrollEnabled={false}
 data={pokemons}
 renderItem={({ item })=>{
   return <Card item={item}/>
 }}
-/> */}
+/>
 </View>
+  </ScrollView>
+  </GestureHandlerRootView>
 );
 }
 
