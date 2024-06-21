@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { Card, Title, Paragraph, Button } from 'react-native-paper';
-import { Produto } from '../../service/produto';
+import { GetAllPokemons, Produto } from '../../service/produto';
 
 interface CardProps {
   item: Produto;
 }
+
+
 
 export const CardPokemon = ({ item }: CardProps) => {
   function tipo() {

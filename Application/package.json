@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/styled": "^11.11.5",
     "@expo/metro-runtime": "~3.2.1",
+    "@expo/vector-icons": "^14.0.2",
     "@mui/material": "^5.15.20",
     "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/drawer": "^6.6.15",
