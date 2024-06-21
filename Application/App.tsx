@@ -4,52 +4,23 @@ import { useEffect,useState } from 'react';
 import { CardPokemon } from './components/CardProduto';
 import { GetAllPokemons,Produto } from "./service/produto";
 import { AxiosResponse } from "axios";
+import Routes from './Routes';
+import Home from './screens/Home';
+import { NavigationContainer } from '@react-navigation/native';
 
 
 export default function App() {
-  const [pokemons,setPokemons] =useState<Produto[]>([]);//possivel
 
-  function ListarPokemons(){
-    GetAllPokemons()
-    .then((response: AxiosResponse<Produto[]>)=>{
-        // console.log(response.data);
-        setPokemons(response.data)
-        return response.data;
-    })
-    .catch((error)=>{
-        console.error(error);
-    })
-}
-
-useEffect(()=>{
-ListarPokemons();
-},[])
 
 return (
-  
+  <NavigationContainer>
+
   <GestureHandlerRootView>
 
-  <ScrollView>
-<View  style={styles.container}>
+  <Routes/>
 
-<FlatList
-scrollEnabled={false}
-data={pokemons}
-renderItem={({ item })=>{
-  return <CardPokemon item={item}/>
-}}
-/>
-</View>
-  </ScrollView>
   </GestureHandlerRootView>
+  </NavigationContainer>
 );
 }
 
-const styles = StyleSheet.create({
-container: {
-flex: 1,
-backgroundColor: '#fff',
-alignItems: 'center',
-justifyContent: 'center',
-},
-});
