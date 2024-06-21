@@ -1,46 +1,41 @@
-import { View, Text, Image } from 'react-native'
-import React, { useState } from 'react'
-import { Produto } from '../../service/produto'
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import React from 'react';
+import { View, Text, Image, StyleSheet } from 'react-native';
+import { Card, Title, Paragraph, Button } from 'react-native-paper';
+import { Produto } from '../../service/produto';
 
-
-interface CardProps{
-    item: Produto
+interface CardProps {
+  item: Produto;
 }
-export const CardPokemon =({item}:CardProps) =>{
-  function tipo<String>(){
+
+export const CardPokemon = ({ item }: CardProps) => {
+  function tipo() {
     const resposta = item.tipoSecundario !== "Nulo" ? item.tipoSecundario : "";
-        return item.tipoPrimario+ (resposta ?  `/ ${resposta}` : "");
+    return item.tipoPrimario + (resposta ? `/ ${resposta}` : "");
   }
+
   return (
-  <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="200"
-          src={item.imagem}
-          alt="pokemon"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            { item.name }
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-          Type: {tipo()}
-          <br />
-          Valor: R$ {item.valorUnitario}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button sx={{backgroundColor: '#D3D3D3'}}>
+    <Card style={styles.card}>
+      <Card.Cover source={{ uri: item.imagem }} style={styles.image} />
+      <Card.Content>
+        <Title>{item.name}</Title>
+        <Paragraph>Type: {tipo()}</Paragraph>
+        <Paragraph>Valor: R$ {item.valorUnitario}</Paragraph>
+      </Card.Content>
+      <Card.Actions>
+        <Button mode="contained" onPress={() => { /* Lógica do botão */ }}>
           Adicionar ao carrinho
         </Button>
-      </CardActions>
+      </Card.Actions>
     </Card>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  card: {
+    margin: 10,
+    width: 345,
+  },
+  image: {
+    height: 200,
+  },
+});

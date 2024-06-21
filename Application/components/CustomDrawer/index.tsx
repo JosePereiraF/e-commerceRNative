@@ -8,11 +8,11 @@ export default function CustonDrawer(props) {
     <DrawerContentScrollView>
         <View
         style={{
-            width:"100%",
-            height:85,
-            alignItems:"center",
-            justifyContent:"center"
-        }}
+          width:"100%",
+          height:85,
+          alignItems:"center",
+          justifyContent:"center"
+      }}
         >
         {/* <Text style={{ fontSize: 18, marginTop: 5, color: "#000" }}>
           {logado}
